@@ -109,3 +109,5 @@ plugin installed for Easy auto-fixable import sorting
 1.  Setting up the project
 2.  Setting up eslint and react hot toast
 3.  Setting up redux store and basic auth slice
+4.  Setting up axios instance
+5.  Writing footer

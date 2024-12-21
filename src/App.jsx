@@ -1,8 +1,12 @@
+import { Routes } from "react-router-dom";
+import Footer from "./Components/Footer";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-4xl p-4 font-semibold">Learning Management System</h1>
-    </div>
+    <>
+      {/* <Routes></Routes> */}
+      <Footer />
+    </>
   );
 };
 
