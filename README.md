@@ -1,6 +1,6 @@
 # Learning Management System Frontend 🔥🚀
 
-### Setup Instruction
+### Setup Instructions
 
 1. Clone the project.
 
@@ -24,4 +24,40 @@
 
 ```
     npm run dev
+```
+
+### Setup Instructions for Tailwind
+
+[Tailwind Official Documentation](https://tailwindcss.com/docs/installation)
+
+1. Install tailwindcss.
+
+```
+    npm install -D tailwindcss postcss autoprefixer
+```
+
+2. Create tailwind config file.
+
+```
+    npx tailwindcss init -p
+```
+
+3. Add file extensions to tailwind config file in the contents property.
+
+```
+    "./src/**/*.{html,js,jsx,ts,tsx}", "./index.html",
+```
+
+4. Add the tailwind directives at the top of the `index.css` file.
+
+```
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+```
+
+5. Add the following details in the plugin property of tailwind config.
+
+```
+    [require("daisyui"), require("@tailwindcss/line-clamp")]
 ```
