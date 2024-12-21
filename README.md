@@ -105,3 +105,7 @@ plugin installed for Easy auto-fixable import sorting
         "source.fixAll.eslint": true
     }
 ```
+
+1.  Setting up the project
+2.  Setting up eslint and react hot toast
+3.  Setting up redux store and basic auth slice
