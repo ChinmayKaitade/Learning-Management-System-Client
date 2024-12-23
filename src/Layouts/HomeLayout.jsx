@@ -1,21 +1,46 @@
 import React from "react";
 import { FiMenu } from "react-icons/fi";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
 
 const HomeLayout = ({ children }) => {
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // for checking user logged in or not
+  const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
+
+  // for displaying the options, according to user role
+  const role = useSelector((state) => state?.auth?.role);
+
+  // function to hide the drawer on close button click
   const changeWidth = () => {
     const drawerSide = document.getElementsByClassName("drawer-side");
     drawerSide[0].style.width = "auto";
   };
 
+  // collapsing the drawer-side width to zero
   const hideDrawer = () => {
     const element = document.getElementsByClassName("drawer-toggle");
     element[0].checked = false;
 
+    // function for changing the drawer width on menu button click
     const drawerSide = document.getElementsByClassName("drawer-side");
     drawerSide[0].style.width = "0";
+  };
+
+  // function to handle logout
+  const handleLogout = async (event) => {
+    event.preventDefault();
+
+    // calling logout action
+    // const res = await dispatch(logout());
+
+    // redirect to home page if true
+    // if (res?.payload?.success)
+    navigate("/");
   };
 
   return (
@@ -49,6 +74,13 @@ const HomeLayout = ({ children }) => {
               <Link to="/">Home</Link>
             </li>
 
+            {/* displaying dashboard, if user is logged in */}
+            {isLoggedIn && role === "ADMIN" && (
+              <li>
+                <Link to={"/admin/dashboard"}>Admin Dashboard</Link>
+              </li>
+            )}
+
             <li>
               <Link to="/courses">All Courses</Link>
             </li>
@@ -60,6 +92,35 @@ const HomeLayout = ({ children }) => {
             <li>
               <Link to="/about">About Us</Link>
             </li>
+
+            {/* creating the bottom part of drawer */}
+            {/* if user is not logged in */}
+            {!isLoggedIn && (
+              <li className="absolute bottom-4 w-[90%]">
+                <div className="w-full flex items-center justify-center">
+                  <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to={"/login"}>Login</Link>
+                  </button>
+                  <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to={"/signup"}>Signup</Link>
+                  </button>
+                </div>
+              </li>
+            )}
+
+            {/* if user is logged in */}
+            {isLoggedIn && (
+              <li className="absolute bottom-4 w-[90%]">
+                <div className="w-full flex items-center justify-center">
+                  <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link to={"/user/profile"}>Profile</Link>
+                  </button>
+                  <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                    <Link onClick={handleLogout}>Logout</Link>
+                  </button>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
       </div>
