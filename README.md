@@ -112,3 +112,4 @@ plugin installed for Easy auto-fixable import sorting
 4.  Setting up axios instance
 5.  Writing footer
 6.  Lets work on Layout & Home Page
+7.  Adding Action buttons on sidebar
