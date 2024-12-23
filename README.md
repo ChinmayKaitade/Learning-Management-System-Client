@@ -111,3 +111,4 @@ plugin installed for Easy auto-fixable import sorting
 3.  Setting up redux store and basic auth slice
 4.  Setting up axios instance
 5.  Writing footer
+6.  Lets work on Layout & Home Page
