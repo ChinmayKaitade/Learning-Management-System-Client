@@ -7,14 +7,15 @@ import Footer from "../Components/Footer";
 const HomeLayout = ({ children }) => {
   const changeWidth = () => {
     const drawerSide = document.getElementsByClassName("drawer-side");
-    drawerSide[0].style.width = 0;
+    drawerSide[0].style.width = "auto";
   };
 
   const hideDrawer = () => {
     const element = document.getElementsByClassName("drawer-toggle");
     element[0].checked = false;
 
-    changeWidth();
+    const drawerSide = document.getElementsByClassName("drawer-side");
+    drawerSide[0].style.width = "0";
   };
 
   return (
@@ -37,7 +38,7 @@ const HomeLayout = ({ children }) => {
         <div className="drawer-side w-0">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
-          <ul className="menu p-4 w-48 sm:w-80 bg-base-100 text-base-content relative">
+          <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative">
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
                 <AiFillCloseCircle size={24} />
