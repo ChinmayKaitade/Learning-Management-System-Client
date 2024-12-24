@@ -45,7 +45,7 @@ const HomeLayout = ({ children }) => {
 
   return (
     <div className="min-h-[90vh]">
-      {/* Drawer Container */}
+      {/* Main Drawer Container */}
       <div className="drawer absolute left-0 z-50 w-fit">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
 
@@ -60,10 +60,11 @@ const HomeLayout = ({ children }) => {
           </label>
         </div>
 
+        {/* Drawer Sidebar */}
         <div className="drawer-side w-0">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
-          <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative">
+          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-200 text-base-content relative">
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
                 <AiFillCloseCircle size={24} />
@@ -77,7 +78,7 @@ const HomeLayout = ({ children }) => {
             {/* displaying dashboard, if user is logged in */}
             {isLoggedIn && role === "ADMIN" && (
               <li>
-                <Link to={"/admin/dashboard"}>Admin Dashboard</Link>
+                <Link to="/admin/dashboard">Admin Dashboard</Link>
               </li>
             )}
 
@@ -99,10 +100,11 @@ const HomeLayout = ({ children }) => {
               <li className="absolute bottom-4 w-[90%]">
                 <div className="w-full flex items-center justify-center">
                   <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to={"/login"}>Login</Link>
+                    <Link to="/login">Login</Link>
                   </button>
+
                   <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to={"/signup"}>Signup</Link>
+                    <Link to="/signup">Signup</Link>
                   </button>
                 </div>
               </li>
@@ -113,8 +115,9 @@ const HomeLayout = ({ children }) => {
               <li className="absolute bottom-4 w-[90%]">
                 <div className="w-full flex items-center justify-center">
                   <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
-                    <Link to={"/user/profile"}>Profile</Link>
+                    <Link to="/user/profile">Profile</Link>
                   </button>
+                  
                   <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
                     <Link onClick={handleLogout}>Logout</Link>
                   </button>
