@@ -117,3 +117,4 @@ plugin installed for Easy auto-fixable import sorting
 9.  Creating not found page
 10. Sign up page
 11. Adding authentication flow
+12. Logout Implemented
