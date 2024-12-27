@@ -4,9 +4,10 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/Slices/authSlice";
 
 const HomeLayout = ({ children }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // for checking user logged in or not
@@ -36,11 +37,9 @@ const HomeLayout = ({ children }) => {
     event.preventDefault();
 
     // calling logout action
-    // const res = await dispatch(logout());
-
+    const res = await dispatch(logout());
     // redirect to home page if true
-    // if (res?.payload?.success)
-    navigate("/");
+    if (res?.payload?.success) navigate("/");
   };
 
   return (
@@ -117,7 +116,7 @@ const HomeLayout = ({ children }) => {
                   <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
                     <Link to="/user/profile">Profile</Link>
                   </button>
-                  
+
                   <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
                     <Link onClick={handleLogout}>Logout</Link>
                   </button>
