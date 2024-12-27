@@ -115,3 +115,4 @@ plugin installed for Easy auto-fixable import sorting
 7.  Adding Action buttons on sidebar
 8.  Building About us Page
 9.  Creating not found page
+10. Sign up page
