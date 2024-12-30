@@ -122,3 +122,4 @@ plugin installed for Easy auto-fixable import sorting
 14. Making Contact Page
 15. Denied Page
 16. Course Description Page
+17. Added Require Auth
