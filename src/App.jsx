@@ -8,6 +8,8 @@ import CourseList from "./Pages/Course/CourseList";
 import Contact from "./Pages/Contact";
 import Denied from "./Pages/Denied";
 import CourseDescription from "./Pages/Course/CourseDescription";
+import RequireAuth from "./Components/Auth/RequireAuth";
+import CreateCourse from "./Pages/Course/CreateCourse";
 
 const App = () => {
   return (
@@ -23,6 +25,10 @@ const App = () => {
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
+        <Route element={<RequireAuth allowedRoles={["ADMIN"]} />}>
+          <Route path="/course/create" element={<CreateCourse />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
