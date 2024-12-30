@@ -121,3 +121,4 @@ plugin installed for Easy auto-fixable import sorting
 13. Making Course List page
 14. Making Contact Page
 15. Denied Page
+16. Course Description Page
