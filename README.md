@@ -126,3 +126,4 @@ plugin installed for Easy auto-fixable import sorting
 18. Course Creation by Admin
 19. User Profile
 20. Edit Profile
+21. Razorpay Slice
