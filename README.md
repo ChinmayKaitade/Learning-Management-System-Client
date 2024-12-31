@@ -124,3 +124,4 @@ plugin installed for Easy auto-fixable import sorting
 16. Course Description Page
 17. Added Require Auth
 18. Course Creation by Admin
+19. User Profile
