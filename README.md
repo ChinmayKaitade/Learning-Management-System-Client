@@ -127,3 +127,4 @@ plugin installed for Easy auto-fixable import sorting
 19. User Profile
 20. Edit Profile
 21. Razorpay Slice
+22. Checkout Page
