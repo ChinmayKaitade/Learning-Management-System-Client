@@ -18,11 +18,6 @@ const Checkout = () => {
   const subscription_id = useSelector(
     (state) => state?.razorpay?.subscription_id
   );
-  const isPaymentVerified = useSelector(
-    (state) => state?.razorpay?.isPaymentVerified
-  );
-
-  const userData = useSelector((state) => state?.auth?.data);
 
   // for storing the payment details after successful transaction
   const paymentDetails = {
@@ -113,7 +108,7 @@ const Checkout = () => {
               <p>100% Refund on Cancellation</p>
               <p>* Terms and Conditions Applied *</p>
             </div>
-            
+
             <button
               type="submit"
               className="bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-300 absolute bottom-0 w-full left-0 text-xl font-bold rounded-bl-lg rounded-br-lg py-2"
