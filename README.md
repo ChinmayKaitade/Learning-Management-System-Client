@@ -130,3 +130,4 @@ plugin installed for Easy auto-fixable import sorting
 22. Checkout Page
 23. Payment Cancellation
 24. Lecture State
+25. Displaying Lectures
