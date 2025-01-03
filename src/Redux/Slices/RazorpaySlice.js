@@ -24,6 +24,7 @@ export const purchaseCourseBundle = createAsyncThunk(
   async () => {
     try {
       const response = await axiosInstance.post("/payments/subscribe");
+      console.log(response)
       return response.data;
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -46,6 +47,7 @@ export const verifyUserPayment = createAsyncThunk(
     }
   }
 );
+
 export const getPaymentRecord = createAsyncThunk(
   "/payments/record",
   async () => {
@@ -64,6 +66,7 @@ export const getPaymentRecord = createAsyncThunk(
     }
   }
 );
+
 export const cancelCourseBundle = createAsyncThunk(
   "/payments/cancel",
   async () => {
@@ -74,7 +77,7 @@ export const cancelCourseBundle = createAsyncThunk(
         success: (data) => {
           return data?.data?.message;
         },
-        error: "Failed to ubsubscrive",
+        error: "Failed to Unsubscribe",
       });
       return (await response).data;
     } catch (error) {
@@ -82,6 +85,7 @@ export const cancelCourseBundle = createAsyncThunk(
     }
   }
 );
+
 const razorpaySlice = createSlice({
   name: "razorpay",
   initialState,

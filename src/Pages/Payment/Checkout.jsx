@@ -54,8 +54,7 @@ const Checkout = () => {
 
         // verifying the payment
         const res = await dispatch(verifyUserPayment(paymentDetails));
-        console.log(isPaymentVerified);
-
+        console.log(response);
         // redirecting the user according to the verification status
         res?.payload?.success
           ? navigate("/checkout/success")
