@@ -30,13 +30,13 @@ const CourseDescription = () => {
                   <span className="text-yellow-500 font-bold">
                     Total Lectures :{" "}
                   </span>
-                  {state?.numberOfLectures ? state.numberOfLectures : 0}
+                  {state?.numbersOfLectures ? state.numbersOfLectures : 0}
                 </p>
                 <p className="font-semibold">
                   <span className="text-yellow-500 font-bold">
                     Instructor :{" "}
                   </span>
-                  {state.createdBy}
+                  {state?.createdBy || "Unknown"}
                 </p>
               </div>
 
@@ -64,12 +64,12 @@ const CourseDescription = () => {
           {/* creating the right section of description box */}
           <div className="space-y-2 text-xl">
             <h1 className="text-3xl font-bold text-yellow-500 text-center mb-4">
-              {state.title}
+              {state?.title || "Course Title"}
             </h1>
 
             <p className="text-yellow-500 font-bold">Course Description :</p>
 
-            <p>{state.description}</p>
+            <p>{state?.description || "No description available."}</p>
           </div>
         </div>
       </div>
