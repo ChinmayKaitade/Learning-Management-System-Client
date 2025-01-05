@@ -132,4 +132,4 @@ plugin installed for Easy auto-fixable import sorting
 24. Lecture State
 25. Displaying Lectures
 26. Uploading Lectures
-
+27. Admin Dashboard
