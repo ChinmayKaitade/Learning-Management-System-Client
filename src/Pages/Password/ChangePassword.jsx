@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { changePassword } from "../../Redux/Slices/authSlice";
+import { isValidPassword } from "../../Helpers/regexMatcher";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
@@ -35,9 +36,7 @@ const ChangePassword = () => {
     }
 
     // validating the password using regex
-    if (
-      !userPassword.newPassword.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)
-    ) {
+    if (!isValidPassword(userPassword.newPassword)) {
       toast.error(
         "Minimum password length should be 6 with Uppercase, Lowercase, Number and Symbol"
       );

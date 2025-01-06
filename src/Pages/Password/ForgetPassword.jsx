@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { forgetPassword } from "../../Redux/Slices/authSlice";
+import { isEmail } from "../../Helpers/regexMatcher";
 
 const ForgetPassword = () => {
   const dispatch = useDispatch();
@@ -17,13 +18,13 @@ const ForgetPassword = () => {
 
     // checking for the empty field
     if (!email) {
-      toast.error("All fields are mandatory");
+      toast.error("All fields are Mandatory");
       return;
     }
 
     // email validation using regex
-    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-      toast.error("Invalid email id");
+    if (!isEmail(email)) {
+      toast.error("Invalid Email Id");
       return;
     }
 

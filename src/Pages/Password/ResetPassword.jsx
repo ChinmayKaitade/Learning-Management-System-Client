@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { resetPassword } from "../../Redux/Slices/authSlice";
+import { isValidPassword } from "../../Helpers/regexMatcher";
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const ResetPassword = () => {
     }
 
     // password validation using regex
-    if (!data.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/)) {
+    if (!isValidPassword(data.password)) {
       toast.error(
         "Minimum password length should be 8 with Uppercase, Lowercase, Number and Symbol"
       );

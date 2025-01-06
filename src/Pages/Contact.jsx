@@ -35,9 +35,9 @@ const Contact = () => {
     try {
       const res = axiosInstance.post("/contact", { ...userInput });
       toast.promise(res, {
-        loading: "Submitting your message",
+        loading: "Submitting your Message",
         success: "Form submitted Successfully",
-        error: "Failed to Submit the form",
+        error: "Failed to Submit the Form",
       });
       const response = await res;
 
@@ -67,6 +67,7 @@ const Contact = () => {
             <label className="text-xl font-semibold" htmlFor="name">
               Name
             </label>
+
             <input
               className="bg-transparent border px-2 py-1 rounded-sm"
               id="name"
@@ -82,6 +83,7 @@ const Contact = () => {
             <label className="text-xl font-semibold" htmlFor="email">
               Email
             </label>
+
             <input
               className="bg-transparent border px-2 py-1 rounded-sm"
               id="email"
@@ -97,6 +99,7 @@ const Contact = () => {
             <label className="text-xl font-semibold" htmlFor="message">
               Message
             </label>
+
             <textarea
               className="bg-transparent border px-2 py-1 rounded-sm resize-none h-40"
               name="message"
