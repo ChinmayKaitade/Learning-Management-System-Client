@@ -19,6 +19,7 @@ import DisplayLectures from "./Pages/Dashboard/DisplayLectures";
 import AddLecture from "./Pages/Dashboard/AddLecture";
 import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
 import NotRequireAuth from "./Components/Auth/NotRequireAuth";
+import ChangePassword from "./Pages/Password/ChangePassword";
 
 const App = () => {
   return (
@@ -30,28 +31,26 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/denied" element={<Denied />} />
 
-        <Route path="/course/description" element={<CourseDescription />} />
-
         <Route element={<NotRequireAuth />}>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+        </Route>
+
+        <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />}>
+          <Route path="/course/description" element={<CourseDescription />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
+          <Route path="/checkout/fail" element={<CheckoutFail />} />
+          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/user/profile" element={<Profile />} />
+          <Route path="/user/editprofile" element={<EditProfile />} />
+          <Route path="/course/displaylectures" element={<DisplayLectures />} />
         </Route>
 
         <Route element={<RequireAuth allowedRoles={["ADMIN"]} />}>
           <Route path="/course/create" element={<CreateCourse />} />
           <Route path="/course/addlecture" element={<AddLecture />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        </Route>
-
-        <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />}>
-          <Route path="/user/profile" element={<Profile />} />
-          <Route path="/user/editprofile" element={<EditProfile />} />
-
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/success" element={<CheckoutSuccess />} />
-          <Route path="/checkout/fail" element={<CheckoutFail />} />
-
-          <Route path="/course/displaylectures" element={<DisplayLectures />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
