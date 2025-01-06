@@ -131,6 +131,30 @@ export const changePassword = createAsyncThunk(
   }
 );
 
+// function to handle forget password
+export const forgetPassword = createAsyncThunk(
+  "auth/forgetPassword",
+  async (email) => {
+    try {
+      let res = axiosInstance.post("/user/reset", { email });
+
+      await toast.promise(res, {
+        loading: "Loading...",
+        success: (data) => {
+          return data?.data?.message;
+        },
+        error: "Failed to send verification email",
+      });
+
+      // getting response resolved here
+      res = await res;
+      return res.data;
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
