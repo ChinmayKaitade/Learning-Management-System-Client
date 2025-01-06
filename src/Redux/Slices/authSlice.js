@@ -115,11 +115,11 @@ export const changePassword = createAsyncThunk(
       let res = axiosInstance.post("/user/change-password", userPassword);
 
       await toast.promise(res, {
-        loading: "Loading...",
+        loading: "Loading",
         success: (data) => {
           return data?.data?.message;
         },
-        error: "Failed to change password",
+        error: "Failed to Change Password",
       });
 
       // getting response resolved here
@@ -139,11 +139,11 @@ export const forgetPassword = createAsyncThunk(
       let res = axiosInstance.post("/user/reset", { email });
 
       await toast.promise(res, {
-        loading: "Loading...",
+        loading: "Loading",
         success: (data) => {
           return data?.data?.message;
         },
-        error: "Failed to send verification email",
+        error: "Failed to Send Verification Email",
       });
 
       // getting response resolved here
@@ -154,6 +154,28 @@ export const forgetPassword = createAsyncThunk(
     }
   }
 );
+
+// function to reset the password
+export const resetPassword = createAsyncThunk("/user/reset", async (data) => {
+  try {
+    let res = axiosInstance.post(`/user/reset/${data.resetToken}`, {
+      password: data.password,
+    });
+
+    toast.promise(res, {
+      loading: "Resetting Password",
+      success: (data) => {
+        return data?.data?.message;
+      },
+      error: "Failed to Reset Password",
+    });
+    // getting response resolved here
+    res = await res;
+    return res.data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
 
 const authSlice = createSlice({
   name: "auth",
