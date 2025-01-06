@@ -20,6 +20,7 @@ import AddLecture from "./Pages/Dashboard/AddLecture";
 import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
 import NotRequireAuth from "./Components/Auth/NotRequireAuth";
 import ChangePassword from "./Pages/Password/ChangePassword";
+import ForgetPassword from "./Pages/Password/ForgetPassword";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/denied" element={<Denied />} />
+        <Route path="/forgetpassword" element={<ForgetPassword />} />
 
         <Route element={<NotRequireAuth />}>
           <Route path="/signup" element={<Signup />} />
