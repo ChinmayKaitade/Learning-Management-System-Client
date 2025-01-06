@@ -21,6 +21,7 @@ import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
 import NotRequireAuth from "./Components/Auth/NotRequireAuth";
 import ChangePassword from "./Pages/Password/ChangePassword";
 import ForgetPassword from "./Pages/Password/ForgetPassword";
+import ResetPassword from "./Pages/Password/ResetPassword";
 
 const App = () => {
   return (
@@ -32,13 +33,14 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/denied" element={<Denied />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
 
         <Route element={<NotRequireAuth />}>
-          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />}>
+        <Route element={<RequireAuth allowedRoles={["USER", "ADMIN"]} />}>
           <Route path="/course/description" element={<CourseDescription />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/success" element={<CheckoutSuccess />} />
